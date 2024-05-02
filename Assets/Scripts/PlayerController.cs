@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKey("up")) 
         {
-            transform.position += transform.forward * 0.03f;
+            _rigidbody.AddForce(transform.forward * 100.0f, ForceMode.Force);
         }
         if(Input.GetKey("down")) 
         {
-            transform.position -= transform.forward * 0.03f;
+            _rigidbody.AddForce(transform.forward * -100.0f, ForceMode.Force);
         }
         if(Input.GetKey("right")) 
         {
