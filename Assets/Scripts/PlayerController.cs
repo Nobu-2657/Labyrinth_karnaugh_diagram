@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private Vector3 _velocity;
-    private float _speed = 2f;
     private bool isJumping = false;
 
     private Vector3 _aim; 
@@ -67,7 +66,5 @@ public class PlayerController : MonoBehaviour
         } else {
             _animator.SetBool("walking", false);
         }
-
-        //_rigidbody.velocity = _velocity * _speed;
     }
 }
