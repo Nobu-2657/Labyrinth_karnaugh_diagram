@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float _vertical;
     private Vector3 _velocity;
     private float _speed = 2f;
+    private bool isJumping = false;
 
     private Vector3 _aim; 
     private Quaternion _playerRotation; 
@@ -27,15 +28,15 @@ public class PlayerController : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if(Input.GetKey("up")) 
         {
-            _rigidbody.AddForce(transform.forward * 100.0f, ForceMode.Force);
+            _rigidbody.AddForce(transform.forward * 70.0f, ForceMode.Force);
         }
         if(Input.GetKey("down")) 
         {
-            _rigidbody.AddForce(transform.forward * -100.0f, ForceMode.Force);
+            _rigidbody.AddForce(transform.forward * -70.0f, ForceMode.Force);
         }
         if(Input.GetKey("right")) 
         {
@@ -46,12 +47,27 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0f, -3.0f, 0f);
         }
 
-        if (_velocity.magnitude > 0.1f) {
+        //ジャンプ処理
+        // if(Input.GetKey("space")&& !isJumping) 
+        // {
+        //     _rigidbody.AddForce(transform.up * 100.0f, ForceMode.Impulse);
+        //     isJumping = true;
+        // }
+
+        // void OnCollisionEnter(Collision collision)
+        // {
+        //     if(collision.gameObject.CompareTag("Floor"))
+        //     {
+        //         isJumping = false;
+        //     }
+        // }
+
+        if (_rigidbody.velocity.magnitude > 0.1f) {
             _animator.SetBool("walking", true);
         } else {
             _animator.SetBool("walking", false);
         }
 
-        _rigidbody.velocity = _velocity * _speed;
+        //_rigidbody.velocity = _velocity * _speed;
     }
 }
