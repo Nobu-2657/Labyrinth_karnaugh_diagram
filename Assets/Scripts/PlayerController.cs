@@ -35,7 +35,12 @@ public class PlayerController : MonoBehaviour
         float speed = walkingSpeed;
         if (Input.GetKey("left shift")) {
             speed = runningSpeed;
-            _animator.SetBool("running", true);
+            if (_rigidbody.velocity.magnitude > 0.1f){
+                _animator.SetBool("running", true);
+            }
+            else {
+                _animator.SetBool("running", false);
+            }
         }
         else {
             _animator.SetBool("running", false);
