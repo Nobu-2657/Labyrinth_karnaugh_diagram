@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey("space")&& !isJumping) 
         {
             _rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
-            isJumping = true;
         }
+        Debug.Log(isJumping);
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -86,8 +86,13 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         } else {
-            isJumping = true;
             _rigidbody.AddForce(transform.up * -1 * gravity, ForceMode.Force);
+        }
+    }
+    private void OnCollisionExit(Collision collision) {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            isJumping = true;
         }
     }
 }
