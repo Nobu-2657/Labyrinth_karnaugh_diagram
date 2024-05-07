@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetKey("down")) 
         {
-            _rigidbody.AddForce(transform.forward * -1 * speed, ForceMode.Force);
+            _rigidbody.AddForce(transform.forward * -7 / 10 * speed, ForceMode.Force); //後ろに下がる速度は前進速度の7割
         }
         if(Input.GetKey("right")) 
         {
