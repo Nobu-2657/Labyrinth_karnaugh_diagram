@@ -47,7 +47,7 @@ namespace UnityChan
 			}
 			anim.SetLayerWeight (1, current);
 		}
-	 
+	
 
 		//アニメーションEvents側につける表情切り替え用イベントコール
 		public void OnCallChangeFace (string str)

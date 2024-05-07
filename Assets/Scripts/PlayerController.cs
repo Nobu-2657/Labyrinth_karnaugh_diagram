@@ -13,10 +13,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _velocity;
     private Vector3 _aim; 
     private Quaternion _playerRotation; 
-    private bool isJumping = false;
-    float walkingSpeed = 70.0f;
-    float runningSpeed = 100.0f;
-    float rotationSpeed = 3.0f;
+    private bool isJumping = false; // ジャンプ中かどうか
+    float walkingSpeed = 70.0f; //歩く速度
+    float runningSpeed = 100.0f; //走る速度
+    float rotationSpeed = 3.0f; //視点の回転速度
+    float jump = 10.0f; // ジャンプ力
+    float gravity = 10f; // 重力の大きさ
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //移動速度の設定
+        //移動速度の設定、走るモーションの設定
         float speed = walkingSpeed;
         if (Input.GetKey("left shift")) {
             speed = runningSpeed;
@@ -45,7 +47,15 @@ public class PlayerController : MonoBehaviour
         else {
             _animator.SetBool("running", false);
         }
+        
+        //歩くモーションの設定
+        if (_rigidbody.velocity.magnitude > 0.1f) {
+            _animator.SetBool("walking", true);
+        } else {
+            _animator.SetBool("walking", false);
+        }
 
+        //移動処理
         if(Input.GetKey("up")) 
         {
             _rigidbody.AddForce(transform.forward * speed, ForceMode.Force);
@@ -64,24 +74,20 @@ public class PlayerController : MonoBehaviour
         }
 
         //ジャンプ処理
-        // if(Input.GetKey("space")&& !isJumping) 
-        // {
-        //     _rigidbody.AddForce(transform.up * 100.0f, ForceMode.Impulse);
-        //     isJumping = true;
-        // }
+        if(Input.GetKey("space")&& !isJumping) 
+        {
+            _rigidbody.AddForce(transform.up * jump, ForceMode.Impulse);
+            isJumping = true;
+        }
+    }
 
-        // void OnCollisionEnter(Collision collision)
-        // {
-        //     if(collision.gameObject.CompareTag("Floor"))
-        //     {
-        //         isJumping = false;
-        //     }
-        // }
-
-        if (_rigidbody.velocity.magnitude > 0.1f) {
-            _animator.SetBool("walking", true);
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.CompareTag("Ground"))
+        {
+            isJumping = false;
         } else {
-            _animator.SetBool("walking", false);
+            isJumping = true;
+            _rigidbody.AddForce(transform.up * -1 * gravity, ForceMode.Force);
         }
     }
 }
