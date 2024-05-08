@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0f, -1 * rotationSpeed, 0f);
         }
 
+        //ジャンプの溜め処理
         if(Input.GetKey("space") && !isJumping && Time.time - jumpStartTime > chergeJumpCoolTime) 
         {
             jumpPower += 0.1f;
@@ -85,7 +86,6 @@ public class PlayerController : MonoBehaviour
                 jumpPower = maxJump;
             }
         }
-
         //ジャンプ処理
         if(Input.GetKeyUp("space") && !isJumping && Time.time - jumpStartTime > jumpCoolTime) 
         {
@@ -96,12 +96,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //地面についているか判定
     private void OnCollisionStay(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
         }
     }
+    //地面から離れたか判定
     private void OnCollisionExit(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
