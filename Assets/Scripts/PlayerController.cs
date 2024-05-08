@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private bool isJumping = false; // ジャンプ中かどうか
     private float jumpStartTime = 0; // ジャンプ開始時間
     private float jumpCoolTime = 0.65f; // ジャンプクールタイム
+    private float chergeJumpCoolTime = 0.3f; // ジャンプを溜めなおすまでのクールタイム
     float walkingSpeed = 70.0f; //歩く速度
     float runningSpeed = 100.0f; //走る速度
     float rotationSpeed = 3.0f; //視点の回転速度
-    float normalJump = 8.7f; // 通常ジャンプの大きさ
+    static float normalJump = 8.3f; // 通常ジャンプの大きさ
+    static float maxJump = 12.0f; // ためジャンプの最大の大きさ
+    float jumpPower = normalJump; // ジャンプの大きさ
 
     void Start()
     {
@@ -74,20 +77,33 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(0f, -1 * rotationSpeed, 0f);
         }
 
-        //ジャンプ処理
-        if(Input.GetKey("space")&& !isJumping && Time.time - jumpStartTime > jumpCoolTime) 
+        //ジャンプの溜め処理
+        if(Input.GetKey("space") && !isJumping && Time.time - jumpStartTime > chergeJumpCoolTime) 
         {
-            _rigidbody.AddForce(transform.up * normalJump, ForceMode.Impulse);
+            jumpPower += 0.1f;
+            if(jumpPower > maxJump) 
+            {
+                jumpPower = maxJump;
+            }
+        }
+        //ジャンプ処理
+        if(Input.GetKeyUp("space") && !isJumping && Time.time - jumpStartTime > jumpCoolTime) 
+        {
+            _rigidbody.AddForce(transform.up * jumpPower, ForceMode.Impulse);
             jumpStartTime = Time.time;
+            Debug.Log(jumpPower);
+            jumpPower = normalJump;
         }
     }
 
+    //地面についているか判定
     private void OnCollisionStay(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
         }
     }
+    //地面から離れたか判定
     private void OnCollisionExit(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
