@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     float walkingSpeed = 70.0f; //歩く速度
     float runningSpeed = 100.0f; //走る速度
     float rotationSpeed = 3.0f; //視点の回転速度
-    float normalJump = 10.0f; // 通常ジャンプの大きさ
+    float normalJump = 4.0f; // 通常ジャンプの大きさ
     float gravity = 10f; // 重力の大きさ
 
     void Start()
@@ -81,13 +81,14 @@ public class PlayerController : MonoBehaviour
         Debug.Log(isJumping);
     }
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionStay(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
-        } else {
-            _rigidbody.AddForce(transform.up * -1 * gravity, ForceMode.Force);
         }
+        // else {
+        //     //_rigidbody.AddForce(transform.up * -1 * gravity, ForceMode.Force);
+        // }
     }
     private void OnCollisionExit(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
