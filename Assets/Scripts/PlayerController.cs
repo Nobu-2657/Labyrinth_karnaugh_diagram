@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.AddForce(transform.up * jumpPower, ForceMode.Impulse);
             jumpStartTime = Time.time;
-            Debug.Log(jumpPower);
             jumpPower = normalJump;
         }
     }
