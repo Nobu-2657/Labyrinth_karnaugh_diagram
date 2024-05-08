@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         //ジャンプの溜め処理
         if(Input.GetKey("space") && !isJumping && Time.time - jumpStartTime > chergeJumpCoolTime) 
         {
+            _animator.SetBool("charging", true);
             jumpPower += 0.1f;
             if(jumpPower > maxJump) 
             {
@@ -92,6 +93,7 @@ public class PlayerController : MonoBehaviour
             _rigidbody.AddForce(transform.up * jumpPower, ForceMode.Impulse);
             jumpStartTime = Time.time;
             jumpPower = normalJump;
+            _animator.SetBool("charging", false);
         }
     }
 
