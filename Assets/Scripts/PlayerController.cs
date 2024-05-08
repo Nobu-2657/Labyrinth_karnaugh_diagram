@@ -14,11 +14,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 _aim; 
     private Quaternion _playerRotation; 
     private bool isJumping = false; // ジャンプ中かどうか
+    private float jumpStartTime = 0; // ジャンプ開始時間
+    private float jumpCoolTime = 0.65f; // ジャンプクールタイム
     float walkingSpeed = 70.0f; //歩く速度
     float runningSpeed = 100.0f; //走る速度
     float rotationSpeed = 3.0f; //視点の回転速度
-    float normalJump = 4.0f; // 通常ジャンプの大きさ
-    float gravity = 10f; // 重力の大きさ
+    float normalJump = 8.7f; // 通常ジャンプの大きさ
 
     void Start()
     {
@@ -74,11 +75,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //ジャンプ処理
-        if(Input.GetKey("space")&& !isJumping) 
+        if(Input.GetKey("space")&& !isJumping && Time.time - jumpStartTime > jumpCoolTime) 
         {
             _rigidbody.AddForce(transform.up * normalJump, ForceMode.Impulse);
+            jumpStartTime = Time.time;
         }
-        Debug.Log(isJumping);
     }
 
     private void OnCollisionStay(Collision collision) {
@@ -86,14 +87,12 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
-        // else {
-        //     //_rigidbody.AddForce(transform.up * -1 * gravity, ForceMode.Force);
-        // }
     }
     private void OnCollisionExit(Collision collision) {
         if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = true;
+            jumpStartTime = Time.time;
         }
     }
 }
