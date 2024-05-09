@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             isCharging = true;
             _animator.SetBool("charging", true);
-            jumpPower += 0.1f;
+            jumpPower += 0.07f;
             if(jumpPower > maxJump) 
             {
                 jumpPower = maxJump;
