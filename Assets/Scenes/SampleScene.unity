@@ -3361,6 +3361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SD_unitychan_humanoid
       objectReference: {fileID: 0}
+    - target: {fileID: 100264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
+      propertyPath: m_TagString
+      value: Goal
+      objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23592,7 +23596,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65eed45f435b2749823cbf83c292b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chara: {fileID: 772803438}
+--- !u!65 &1933079398
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933079393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.190899, y: 13.8012, z: 13.9553}
+  m_Center: {x: -13.38875, y: 15.2365, z: 7.01885}
 --- !u!1001 &1935115400
 PrefabInstance:
   m_ObjectHideFlags: 0

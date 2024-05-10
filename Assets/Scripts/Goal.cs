@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
-    //Inspectorでキャラクターとゴールオブジェクトの指定を出来る様にします。
-    public GameObject chara;
 
      private void OnTriggerEnter(Collider other)
     {
         //もしゴールオブジェクトのコライダーに接触した時の処理。
-        if (other.name == chara.name)
+        if (other.CompareTag("Goal"))
         {
             //ゴールシーンを表示
             SceneManager.LoadScene("Goal");
