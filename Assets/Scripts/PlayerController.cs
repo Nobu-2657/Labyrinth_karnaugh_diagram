@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isCharging = false; // ジャンプを溜めているかどうか
     private float jumpStartTime = 0; // ジャンプ開始時間
     private float jumpCoolTime = 0.65f; // ジャンプクールタイム
-    private float chergeJumpCoolTime = 0.3f; // ジャンプを溜めなおすまでのクールタイム
+    private float chergeJumpCoolTime = 0.8f; // ジャンプを溜めなおすまでのクールタイム
     float walkingSpeed = 70.0f; //歩く速度
     float runningSpeed = 100.0f; //走る速度
     float rotationSpeed = 3.0f; //視点の回転速度
