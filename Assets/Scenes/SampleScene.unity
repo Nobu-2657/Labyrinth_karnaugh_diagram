@@ -9131,7 +9131,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wall: {fileID: 1937646484}
-  fieldObj: {fileID: 672908334}
+  destroyObj: {fileID: 0}
+  parent: {fileID: 237726110}
+  Obj1: {fileID: 1716060543}
+  Obj2: {fileID: 672908335}
 --- !u!4 &705841401
 Transform:
   m_ObjectHideFlags: 0
