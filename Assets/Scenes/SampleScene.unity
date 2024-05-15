@@ -3371,15 +3371,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 4.39
       objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.5
+      value: -4.44
       objectReference: {fileID: 0}
     - target: {fileID: 400264, guid: 13a16f60da4245c45a865b2136ba272c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9179,9 +9179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72b72b7f9018b541af4a37aded092c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minute: 0
-  seconds: 0
   TextTime: {fileID: 1750195662}
+  oldSeconds: 0
 --- !u!1001 &779521582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21358,8 +21357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -477, y: 353}
-  m_SizeDelta: {x: 400, y: 50}
+  m_AnchoredPosition: {x: 569, y: 356.70667}
+  m_SizeDelta: {x: 223.5624, y: 42.5866}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750195662
 MonoBehaviour:

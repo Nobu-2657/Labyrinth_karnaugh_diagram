@@ -6,14 +6,14 @@ using TMPro;
 
 public class time : MonoBehaviour
 {
-	[SerializeField] private int minute;
-	[SerializeField] private float seconds;
-	[SerializeField] private TextMeshProUGUI TextTime;
+	[SerializeField] public static int minute;
+	[SerializeField] public static float seconds;
+	[SerializeField] public TextMeshProUGUI TextTime;
 
 	private int f_Goal; //ゴールに到着したときに1となるフラグを追加
 
 	//　前のUpdateの時の秒数
-	private float oldSeconds;
+	public float oldSeconds;
  
 	void Start () {
 		minute = 0;
@@ -46,4 +46,15 @@ public class time : MonoBehaviour
 		f_Goal = 1; // 衝突フラグを上げる
 		}
 	}
+
+	public static int getminute()
+	{
+		return minute;
+	}
+
+	public static float getseconds()
+	{
+		return seconds;
+	}
+
 }
