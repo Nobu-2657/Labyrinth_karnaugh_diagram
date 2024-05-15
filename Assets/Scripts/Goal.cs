@@ -10,7 +10,7 @@ public class Goal : MonoBehaviour
      private void OnTriggerEnter(Collider other)
     {
         //もしゴールオブジェクトのコライダーに接触した時の処理。
-        if (other.CompareTag("Goal"))
+        if (other.CompareTag("Player"))
         {
             //ゴールシーンを表示
             SceneManager.LoadScene("Goal");
