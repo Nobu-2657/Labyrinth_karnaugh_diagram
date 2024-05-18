@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class CheckMystery1 : MonoBehaviour
 {
     [SerializeField] GameObject wall;
-    [SerializeField] GameObject destroyObj;
+    [SerializeField] GameObject destroyObj1;
+    [SerializeField] GameObject destroyObj2;
     [SerializeField] GameObject parent;
     [SerializeField] Transform Obj1;
     [SerializeField] Transform Obj2;
@@ -15,7 +16,8 @@ public class CheckMystery1 : MonoBehaviour
 
     void Start()
     {
-        destroyObj = GameObject.Find("ì‰1");
+        destroyObj1 = GameObject.Find("ì‰1");
+        destroyObj2 = GameObject.Find("GameObject");
         parent = GameObject.Find("Canvas");
         Obj1 = parent.transform.Find("Panel1");
         Obj2 = Obj1.transform.Find("input1");
@@ -28,8 +30,9 @@ public class CheckMystery1 : MonoBehaviour
         if (inputField.text == "mystery")
         {
             Destroy(wall);
-            Destroy(parent);
-            Destroy(destroyObj);
+            Destroy(destroyObj1);
+            Destroy(destroyObj2);
+            Obj1.gameObject.SetActive(false);
             UnityEngine.Debug.Log("êÊÇ÷êiÇﬂÇÈÇÊÇ§Ç…Ç»Ç¡ÇΩ...!");
         }
         else
