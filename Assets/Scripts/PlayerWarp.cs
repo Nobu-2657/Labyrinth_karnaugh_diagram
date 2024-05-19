@@ -76,7 +76,7 @@ public class PlayerWarp : MonoBehaviour
                 break;
 
             case "Warp4b":
-                worldPos.x = 4.5f;
+                worldPos.x = -4.5f;
                 worldPos.y = 6.25f;
                 worldPos.z = -1.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
