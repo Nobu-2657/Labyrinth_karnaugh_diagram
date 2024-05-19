@@ -20,7 +20,10 @@ public class CheckMystery1 : MonoBehaviour
         destroyObj2 = GameObject.Find("GameObject");
         parent = GameObject.Find("Canvas");
         Obj1 = parent.transform.Find("Panel1");
-        Obj2 = Obj1.transform.Find("input1");
+        //Canvas‚ÌˆÃ†•\‚ªnon-active‚¾‚Á‚½‚ç...
+        Obj2 = Obj1.transform.Find("input1a");
+        //Canvas‚ÌˆÃ†•\‚ªactive‚¾‚Á‚½‚ç...
+        //Obj2 = Obj1.transform.Find("input1b");
         inputField = Obj2.gameObject.GetComponent<InputField>();
         wall = GameObject.Find("Destroy1");
     }
