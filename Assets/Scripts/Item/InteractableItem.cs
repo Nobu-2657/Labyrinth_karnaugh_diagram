@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
-private ItemManager itemManager;
-
-    private void Start()
-    {
-        itemManager = GetComponent<ItemManager>();
-    }
+    [SerializeField] Item item;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Triggered");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Item detected");
-            Item item = other.GetComponent<Item>();
-            if (item != null)
+            ItemManager itemManager = FindObjectOfType<ItemManager>(); // シーン内からItemManagerを探す
+            if (itemManager != null)
             {
                 // アイテムを取得する処理
                 itemManager.AddItem(item);
-                Destroy(other.gameObject);
+                Destroy(gameObject); // アイテムを持っているゲームオブジェクトを破棄する
+            }
+            else
+            {
+                Debug.LogError("ItemManager not found in the scene.");
             }
         }
     }

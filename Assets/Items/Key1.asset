@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kindOfItem: 0
   icon: {fileID: 0}
-  itemName: 
+  itemName: "\u93751"
