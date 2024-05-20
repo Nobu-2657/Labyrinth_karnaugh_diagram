@@ -7,8 +7,10 @@ public class ItemManager : MonoBehaviour {
 	//　アイテムデータベース
 	[SerializeField]
 	private ItemDataBase itemDataBase;
+    [SerializeField] GameObject images;
+    [SerializeField] Transform image;
 
-	private Item item;
+    private Item item;
 
 	//　アイテム数管理
 	private Dictionary<Item, int> numOfItems = new Dictionary<Item, int>();
@@ -19,7 +21,8 @@ public class ItemManager : MonoBehaviour {
 			//　アイテム数を0に設定
 			numOfItems.Add (itemDataBase.GetItemLists() [i], 0);
 		}
-	}
+        images = GameObject.Find("KeyImage");
+    }
 
     //　アイテムを手に入れる
         public void AddItem(Item item)
@@ -27,6 +30,10 @@ public class ItemManager : MonoBehaviour {
         if (numOfItems.ContainsKey(item))
         {
             numOfItems[item]++;
+
+            image = images.transform.Find(item.GetItemName()+"_image");
+            image.gameObject.SetActive(true);
+
             Debug.Log("Added item: " + item.GetItemName());
         }
         else
@@ -54,6 +61,8 @@ public class ItemManager : MonoBehaviour {
         {
             Debug.LogWarning("Item not found: " + item.GetItemName());
         }
+        image = images.transform.Find(item.GetItemName());
+        image.gameObject.SetActive(false);
     }
 
     //　アイテムを持っているかどうか
