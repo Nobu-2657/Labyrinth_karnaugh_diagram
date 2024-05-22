@@ -21,6 +21,9 @@ public class Item : ScriptableObject {
 	//　アイテムの名前
 	[SerializeField]
 	private string itemName;
+	//鍵がもつ値
+	[SerializeField]
+	private int keyValue;
 
 	public KindOfItem GetKindOfItem() {
 		return kindOfItem;
@@ -32,5 +35,9 @@ public class Item : ScriptableObject {
 
 	public string GetItemName() {
 		return itemName;
+	}
+
+	public int GetKeyValue() {
+		return keyValue;
 	}
 }
