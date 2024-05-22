@@ -11,7 +11,7 @@ public class TitleButton : MonoBehaviour
 
     public void StartBtn()
     {
-        SceneManager.LoadScene("Config");
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void ShowConfigPanel()
