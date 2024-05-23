@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class PlayerWarp : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter(Collision other)
     {
         // transformを取得
@@ -24,6 +12,9 @@ public class PlayerWarp : MonoBehaviour
         // ワールド座標を基準に、座標を取得
         Vector3 worldPos = myTransform.position;
 
+        // ワールド座標を基準に、回転を取得
+        Vector3 worldAngle = myTransform.eulerAngles;
+
         switch (other.gameObject.name)
         {
             case "Warp1a":
@@ -31,6 +22,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 3.25f;
                 worldPos.z = -7.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 90.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp1b":
@@ -38,6 +32,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 3.25f;
                 worldPos.z = 2.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 0.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp2a":
@@ -45,6 +42,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 0.25f;
                 worldPos.z = -2.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 90.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp2b":
@@ -52,6 +52,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 3.25f;
                 worldPos.z = 6.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 0.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp3a":
@@ -59,6 +62,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -9.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 270.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp3b":
@@ -66,6 +72,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 0.25f;
                 worldPos.z = -2.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 270.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp4a":
@@ -73,6 +82,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -1.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 90.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp4b":
@@ -80,6 +92,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -1.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 90.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp5a":
@@ -87,6 +102,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = 7.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 0.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp5b":
@@ -94,6 +112,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -5.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 180.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp6a":
@@ -101,6 +122,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -3.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 0.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp6b":
@@ -108,6 +132,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 6.25f;
                 worldPos.z = -6.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 0.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp7a":
@@ -115,6 +142,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 3.25f;
                 worldPos.z = 2.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 180.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
 
             case "Warp7b":
@@ -122,6 +152,9 @@ public class PlayerWarp : MonoBehaviour
                 worldPos.y = 0.25f;
                 worldPos.z = -8.5f;
                 myTransform.position = worldPos;  // ワールド座標での座標を設定
+
+                worldAngle.y = 180.0f;
+                myTransform.eulerAngles = worldAngle; // 回転角度を設定
                 break;
         }
     }
