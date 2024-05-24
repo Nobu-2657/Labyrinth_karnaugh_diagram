@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class ItemManager : MonoBehaviour {
@@ -34,11 +35,11 @@ public class ItemManager : MonoBehaviour {
             image = images.transform.Find(item.GetItemName()+"_image");
             image.gameObject.SetActive(true);
 
-            Debug.Log("Added item: " + item.GetItemName());
+            UnityEngine.Debug.Log("Added item: " + item.GetItemName());            
         }
         else
         {
-            Debug.LogWarning("Item not found: " + item.GetItemName());
+            UnityEngine.Debug.LogWarning("Item not found: " + item.GetItemName());
         }
     }
 
@@ -50,16 +51,16 @@ public class ItemManager : MonoBehaviour {
             if (numOfItems[item] > 0)
             {
                 numOfItems[item]--;
-                Debug.Log("Removed item: " + item.GetItemName());
+                UnityEngine.Debug.Log("Removed item: " + item.GetItemName());
             }
             else
             {
-                Debug.LogWarning("No more " + item.GetItemName() + " to remove.");
+                UnityEngine.Debug.LogWarning("No more " + item.GetItemName() + " to remove.");
             }
         }
         else
         {
-            Debug.LogWarning("Item not found: " + item.GetItemName());
+            UnityEngine.Debug.LogWarning("Item not found: " + item.GetItemName());
         }
         image = images.transform.Find(item.GetItemName());
         image.gameObject.SetActive(false);
@@ -70,9 +71,11 @@ public class ItemManager : MonoBehaviour {
     {
         if (numOfItems.ContainsKey(item))
         {
-            return true;
-        } else {
-            return false;
+            if (numOfItems[item] > 0)
+            {
+                return true;
+            }
         }
+        return false;
     }
 }

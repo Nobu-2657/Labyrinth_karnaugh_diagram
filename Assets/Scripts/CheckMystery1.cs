@@ -33,12 +33,12 @@ public class CheckMystery1 : MonoBehaviour
         if (Obj4.gameObject.activeSelf)
         {
             Obj2 = Obj1.transform.Find("input1b");
-            UnityEngine.Debug.Log(Obj4.gameObject.activeSelf);
+            //UnityEngine.Debug.Log(Obj4.gameObject.activeSelf);
         }
         else
         {
             Obj2 = Obj1.transform.Find("input1a");
-            UnityEngine.Debug.Log(Obj4.gameObject.activeSelf);
+            //UnityEngine.Debug.Log(Obj4.gameObject.activeSelf);
         }
         inputField = Obj2.gameObject.GetComponent<InputField>();
 
