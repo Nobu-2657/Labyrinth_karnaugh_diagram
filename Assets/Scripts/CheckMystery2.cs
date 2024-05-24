@@ -49,7 +49,6 @@ public class CheckMystery2 : MonoBehaviour
         }
         else
         {
-            UnityEngine.Debug.Log("‚µ‚©‚µ‰½‚à‹N‚±‚ç‚È‚©‚Á‚½...");
             flowchart.SendFungusMessage(sendMessageMystery2False);
         }
     }
