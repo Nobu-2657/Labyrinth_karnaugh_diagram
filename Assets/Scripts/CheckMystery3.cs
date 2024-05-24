@@ -50,8 +50,9 @@ public class CheckMystery3 : MonoBehaviour
 
     public void Checker3()
     {
+        keyCount = 0;
         //鍵を何個持っているか
-        for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
+        for (int i = 1; i < itemDataBase.GetItemLists().Count; i++)
         {
             if (itemManager.HasItem(itemDataBase.GetItemLists()[i]))
             {
@@ -60,6 +61,7 @@ public class CheckMystery3 : MonoBehaviour
         }
 
         UnityEngine.Debug.Log("よろしくお願いしまーす！！！");
+        UnityEngine.Debug.Log(keyCount);
         if (inputField1.text == "659" && inputField2.text == "1019" && inputField3.text == "2003")
         {
             Destroy(wall);
