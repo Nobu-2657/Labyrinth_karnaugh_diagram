@@ -17,6 +17,7 @@ public class CheckMystery2 : MonoBehaviour
     public Fungus.Flowchart flowchart;
     public string sendMessageMystery2True = "";
     public string sendMessageMystery2TrueTwice = "";
+    public string sendMessageMystery2FromDeveloper = "";
     public string sendMessageMystery2False = "";
 
     void Start()
@@ -42,8 +43,16 @@ public class CheckMystery2 : MonoBehaviour
             }
             else
             {
-                flowchart.SendFungusMessage(sendMessageMystery2TrueTwice);
-            }            
+                if(flag < 5)
+                {
+                    flowchart.SendFungusMessage(sendMessageMystery2TrueTwice);
+                }
+                else
+                {
+                    flowchart.SendFungusMessage(sendMessageMystery2FromDeveloper);
+                }
+                flag++;
+            }          
 
             
         }

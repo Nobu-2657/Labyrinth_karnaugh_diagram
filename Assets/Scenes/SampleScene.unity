@@ -11843,6 +11843,9 @@ GameObject:
   - component: {fileID: 544114237}
   - component: {fileID: 544114240}
   - component: {fileID: 544114241}
+  - component: {fileID: 544114244}
+  - component: {fileID: 544114243}
+  - component: {fileID: 544114242}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -11875,9 +11878,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 544114233}
-  selectedCommands:
-  - {fileID: 544114241}
+  - {fileID: 544114244}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -12984,8 +12986,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -12.591743
-    y: -143.12358
+    x: -12.5917425
+    y: -89.46501
     width: 133.73982
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -13733,7 +13735,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &544114241
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13758,6 +13760,75 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &544114242
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544114161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d417659cd54a6787f70f763950c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 544114244}
+  suppressBlockAutoSelect: 0
+  message: mystery2FromDeveloper
+--- !u!114 &544114243
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544114161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 78
+  indentLevel: 0
+  storyText: "\u3057\u3064\u3053\u3044\u3068\u5ACC\u308F\u308C\u308B\u3088...?"
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &544114244
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544114161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: -15.02446
+    y: -135.84233
+    width: 191.46338
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 79
+  blockName: mystery2FromDeveloper
+  description: 
+  eventHandler: {fileID: 544114242}
+  commandList:
+  - {fileID: 544114243}
+  suppressAllAutoSelections: 0
 --- !u!1 &544582052
 GameObject:
   m_ObjectHideFlags: 0
@@ -35453,6 +35524,7 @@ MonoBehaviour:
   flowchart: {fileID: 544114162}
   sendMessageMystery2True: mystery2True
   sendMessageMystery2TrueTwice: mystery2TrueTwice
+  sendMessageMystery2FromDeveloper: mystery2FromDeveloper
   sendMessageMystery2False: mystery2False
 --- !u!1001 &1588391970
 PrefabInstance:
