@@ -89,7 +89,7 @@ public class ItemManager : MonoBehaviour {
     //　アイテムを持っているかどうか
     public bool HasItem(Item item)
     {
-        if (numOfItems.ContainsKey(item))
+        if (numOfItems.ContainsKey(item) && numOfItems[item] > 0)
         {
             return true;
         } else {
