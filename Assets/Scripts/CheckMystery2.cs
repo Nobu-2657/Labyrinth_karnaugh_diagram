@@ -12,6 +12,12 @@ public class CheckMystery2 : MonoBehaviour
     [SerializeField] Transform Obj1;
     [SerializeField] Transform Obj2;
     private InputField inputField;
+    private int flag = 0;
+
+    public Fungus.Flowchart flowchart;
+    public string sendMessageMystery2True = "";
+    public string sendMessageMystery2TrueTwice = "";
+    public string sendMessageMystery2False = "";
 
     void Start()
     {
@@ -29,11 +35,22 @@ public class CheckMystery2 : MonoBehaviour
         {
             Destroy(wall);
             Obj1.gameObject.SetActive(false);
-            UnityEngine.Debug.Log("‚Ç‚±‚©‚Å”à‚ªŠJ‚¢‚½‹C‚ª‚µ‚½...");
+            if(flag == 0)
+            {
+                flowchart.SendFungusMessage(sendMessageMystery2True);
+                flag++;
+            }
+            else
+            {
+                flowchart.SendFungusMessage(sendMessageMystery2TrueTwice);
+            }            
+
+            
         }
         else
         {
             UnityEngine.Debug.Log("‚µ‚©‚µ‰½‚à‹N‚±‚ç‚È‚©‚Á‚½...");
+            flowchart.SendFungusMessage(sendMessageMystery2False);
         }
     }
 }

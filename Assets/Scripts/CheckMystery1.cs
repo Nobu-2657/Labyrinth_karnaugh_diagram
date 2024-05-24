@@ -17,10 +17,16 @@ public class CheckMystery1 : MonoBehaviour
     [SerializeField] Transform Obj4;
     private InputField inputField;
 
+    public Fungus.Flowchart flowchart;
+    public string sendMessageMystery1TrueHave = "";
+    public string sendMessageMystery1TrueHavnt = "";
+    public string sendMessageMystery1FalseHave = "";
+    public string sendMessageMystery1FalseHavnt = "";
+
     void Start()
     {
         destroyObj1 = GameObject.Find("ì‰1");
-        destroyObj2 = GameObject.Find("GameObject");
+        destroyObj2 = GameObject.Find("Mystery1Manager");
         parent = GameObject.Find("Canvas");
         Obj1 = parent.transform.Find("Panel1");
         Obj3 = parent.transform.Find("KeyImage");
@@ -49,10 +55,26 @@ public class CheckMystery1 : MonoBehaviour
             Destroy(destroyObj2);
             Obj1.gameObject.SetActive(false);
             UnityEngine.Debug.Log("êÊÇ÷êiÇﬂÇÈÇÊÇ§Ç…Ç»Ç¡ÇΩ...!");
+            if (Obj4.gameObject.activeSelf)
+            {
+                flowchart.SendFungusMessage(sendMessageMystery1TrueHave);
+            }
+            else
+            {
+                flowchart.SendFungusMessage(sendMessageMystery1TrueHavnt);
+            }
         }
         else
         {
             UnityEngine.Debug.Log("ìöÇ¶Ç™à·Ç§ÇÊÇ§Çæ...");
+            if (Obj4.gameObject.activeSelf)
+            {
+                flowchart.SendFungusMessage(sendMessageMystery1FalseHave);
+            }
+            else
+            {
+                flowchart.SendFungusMessage(sendMessageMystery1FalseHavnt);
+            }
         }
     }
 }

@@ -13,6 +13,7 @@ public class GameSystem : MonoBehaviour
     private int k = 0;
     private int l = 0;
     [SerializeField] Transform Vigenere;
+    [SerializeField] GameObject destroyWall;
     public Fungus.Flowchart flowchart;
     public string sendMessageAnotherRoute = "";
     public string sendMessageNeedVigenere = "";
@@ -25,8 +26,11 @@ public class GameSystem : MonoBehaviour
                 case "EventLogObject1":
                     if(i==0)
                     {
-                        flowchart.SendFungusMessage(sendMessageAnotherRoute);
-                        i++;
+                        if (destroyWall)
+                        {
+                            flowchart.SendFungusMessage(sendMessageAnotherRoute);
+                            i++;
+                        }
                     }
                     break;
 

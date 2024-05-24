@@ -19,6 +19,20 @@ public class CheckMystery3 : MonoBehaviour
     private InputField inputField2;
     private InputField inputField3;
 
+    [SerializeField] private ItemDataBase itemDataBase;
+    [SerializeField] private ItemManager itemManager;
+    private int keyCount = 0;
+
+    public Fungus.Flowchart flowchart;
+    public string sendMessageMystery3TrueHave3 = "";
+    public string sendMessageMystery3TrueHave2 = "";
+    public string sendMessageMystery3TrueHave1 = "";
+    public string sendMessageMystery3TrueHave0 = "";
+    public string sendMessageMystery3FalseHave3 = "";
+    public string sendMessageMystery3FalseHave2 = "";
+    public string sendMessageMystery3FalseHave1 = "";
+    public string sendMessageMystery3FalseHave0 = "";
+
     void Start()
     {
         destroyObj1 = GameObject.Find("謎3");
@@ -36,6 +50,15 @@ public class CheckMystery3 : MonoBehaviour
 
     public void Checker3()
     {
+        //鍵を何個持っているか
+        for (int i = 0; i < itemDataBase.GetItemLists().Count; i++)
+        {
+            if (itemManager.HasItem(itemDataBase.GetItemLists()[i]))
+            {
+                keyCount++;
+            }
+        }
+
         UnityEngine.Debug.Log("よろしくお願いしまーす！！！");
         if (inputField1.text == "659" && inputField2.text == "1019" && inputField3.text == "2003")
         {
@@ -44,10 +67,42 @@ public class CheckMystery3 : MonoBehaviour
             Destroy(destroyObj2);
             Obj1.gameObject.SetActive(false);
             UnityEngine.Debug.Log("解けた...!");
+            switch (keyCount)
+            {
+                case 0:
+                    flowchart.SendFungusMessage(sendMessageMystery3TrueHave0);
+                    break;
+                case 1:
+                    flowchart.SendFungusMessage(sendMessageMystery3TrueHave1);
+                    break;
+                case 2:
+                    flowchart.SendFungusMessage(sendMessageMystery3TrueHave2);
+                    break;
+                case 3:
+                    flowchart.SendFungusMessage(sendMessageMystery3TrueHave3);
+                    break;
+            }
+
         }
         else
         {
             UnityEngine.Debug.Log("もう一度解きます...!");
+
+            switch (keyCount)
+            {
+                case 0:
+                    flowchart.SendFungusMessage(sendMessageMystery3FalseHave0);
+                    break;
+                case 1:
+                    flowchart.SendFungusMessage(sendMessageMystery3FalseHave1);
+                    break;
+                case 2:
+                    flowchart.SendFungusMessage(sendMessageMystery3FalseHave2);
+                    break;
+                case 3:
+                    flowchart.SendFungusMessage(sendMessageMystery3FalseHave3);
+                    break;
+            }
         }
     }
 }
