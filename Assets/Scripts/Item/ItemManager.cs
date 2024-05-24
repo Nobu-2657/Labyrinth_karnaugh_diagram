@@ -14,6 +14,12 @@ public class ItemManager : MonoBehaviour {
 
 	//　アイテム数管理
 	private Dictionary<Item, int> numOfItems = new Dictionary<Item, int>();
+    //ファンガスのフローチャート
+    public Fungus.Flowchart flowchart;
+    public string sendMessageVigenere = "";
+    public string sendMessageKey1 = "";
+    public string sendMessageKey2 = "";
+    public string sendMessageKey3 = "";
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +40,22 @@ public class ItemManager : MonoBehaviour {
             image = images.transform.Find(item.GetItemName()+"_image");
             image.gameObject.SetActive(true);
 
-            Debug.Log("Added item: " + item.GetItemName());
+            //Debug.Log("Added item: " + item.GetItemName());
+            switch (item.GetItemName())
+            {
+                case "暗号表":
+                    flowchart.SendFungusMessage(sendMessageVigenere);
+                    break;
+                case "鍵1":
+                    flowchart.SendFungusMessage(sendMessageKey1);
+                    break;
+                case "鍵2":
+                    flowchart.SendFungusMessage(sendMessageKey2);
+                    break;
+                case "鍵3":
+                    flowchart.SendFungusMessage(sendMessageKey3);
+                    break;
+            }
         }
         else
         {
