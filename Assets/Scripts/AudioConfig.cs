@@ -12,6 +12,10 @@ public class AudioConfig : MonoBehaviour
 
     private void Start()
     {
+        //何もスライダーを触らなかった場合
+        PlayerPrefs.SetFloat("BGMVolume", 0);
+        PlayerPrefs.Save();
+
         //スライダーを触ったら音量が変化する
         bgmSlider.onValueChanged.AddListener((value) => 
         { 
